@@ -19,3 +19,18 @@ function returnHome(event) {
 
   // Attach to the form submit event
   document.querySelector("form").addEventListener("submit", returnHome);
+
+  const roomType = document.getElementById("roomType");
+    const roomCount = document.getElementById("roomCount");
+    const summary = document.getElementById("summary");
+
+    function updateSummary() {
+      if (roomType.value && roomCount.value) {
+        summary.textContent = `You selected ${roomCount.value} ${roomType.value}`;
+      } else {
+        summary.textContent = "";
+      }
+    }
+
+    roomType.addEventListener("change", updateSummary);
+    roomCount.addEventListener("change", updateSummary);
